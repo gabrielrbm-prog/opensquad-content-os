@@ -1,0 +1,30 @@
+# === API Keys & Secrets ===
+.env
+
+# === Personal Data (photos, generated content) ===
+assets/fotos-referencia/
+output/posts/
+squads/*/output/posts/
+squads/*/assets/fotos-referencia/
+squads/*/assets/profile-photo.jpeg
+
+# === Opensquad Private Data ===
+_opensquad/_memory/company.md
+_opensquad/_memory/preferences.md
+_opensquad/_browser_profile/
+
+# === Playwright MCP ===
+.playwright-mcp/
+
+# === Dependencies ===
+node_modules/
+dashboard/node_modules/
+
+# === Logs ===
+*.log
+
+# === OS Files ===
+.DS_Store
+
+# === Screenshots & debug images at project root ===
+*.png
