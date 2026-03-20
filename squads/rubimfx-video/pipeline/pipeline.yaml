@@ -1,0 +1,36 @@
+name: rubimfx-video-pipeline
+description: "Pipeline de produção de vídeos curtos com clone IA"
+steps:
+  - name: "Trend Research"
+    agent: "Tina Trend"
+    action: "Pesquisar formatos virais da semana"
+    checkpoint: false
+  - name: "Script Writing"
+    agent: "Rex Roteirista"
+    action: "Criar roteiro baseado no formato escolhido"
+    checkpoint: true
+    checkpoint_question: "Aprova o roteiro? Quer ajustar algo?"
+  - name: "Voice Generation"
+    agent: "Elia ElevenLabs"
+    action: "Gerar áudio com clone de voz"
+    checkpoint: true
+    checkpoint_question: "O áudio está natural? Pronúncia OK?"
+  - name: "B-Roll Curation"
+    agent: "Bea B-Roll"
+    action: "Buscar vídeos/imagens de apoio"
+    checkpoint: false
+  - name: "Video Generation"
+    agent: "Hugo HeyGen"
+    action: "Gerar vídeo com clone facial + áudio"
+    checkpoint: true
+    checkpoint_question: "O vídeo do clone está realista? Lip sync OK?"
+  - name: "Caption & Edit"
+    agent: "Sam Submagic"
+    action: "Adicionar legendas animadas e editar"
+    checkpoint: true
+    checkpoint_question: "Vídeo final está pronto para publicar?"
+  - name: "Publish"
+    agent: "Pablo Publisher"
+    action: "Publicar no Instagram Reels e TikTok"
+    checkpoint: true
+    checkpoint_question: "Confirma publicação?"
