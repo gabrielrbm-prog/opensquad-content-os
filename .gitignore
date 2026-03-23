@@ -1,5 +1,6 @@
 # === API Keys & Secrets ===
 .env
+.env.*
 
 # === Personal Data (photos, generated content) ===
 assets/fotos-referencia/
@@ -7,6 +8,9 @@ output/posts/
 squads/*/output/posts/
 squads/*/assets/fotos-referencia/
 squads/*/assets/profile-photo.jpeg
+
+# === Generated PNGs (large files) ===
+squads/*/output/posts/*/png/
 
 # === Opensquad Private Data ===
 _opensquad/_memory/company.md
@@ -20,6 +24,13 @@ _opensquad/_browser_profile/
 node_modules/
 dashboard/node_modules/
 
+# === Python virtual environments ===
+squads/*/scripts/venv/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
 # === Logs ===
 *.log
 
@@ -28,3 +39,14 @@ dashboard/node_modules/
 
 # === Screenshots & debug images at project root ===
 *.png
+
+# === KEEP THESE (do NOT ignore) ===
+# templates/ — all HTML templates
+# scripts/ — clone_image.py, render, validate, etc.
+# agents/ — all .agent.md files
+# GUIA-CONSISTENCIA.md
+# templates/MODELOS-COMPLETOS.md
+# templates/*-reference.md
+# squad.yaml
+# squad-party.csv
+# .gitignore
