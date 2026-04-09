@@ -1,0 +1,31 @@
+name: Publicar posts agendados @rubimfx
+
+on:
+  schedule:
+    # 3 posts por dia: 8h, 14h, 20h (horário de Brasília = UTC-3)
+    - cron: '3 11 * * *'   # 8:03 BRT
+    - cron: '7 17 * * *'   # 14:07 BRT
+    - cron: '13 23 * * *'  # 20:13 BRT
+  workflow_dispatch: # permite rodar manualmente
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependências
+        run: pip install instagrapi Pillow pyotp requests
+
+      - name: Publicar próximo post da fila
+        env:
+          INSTA_USER: ${{ secrets.INSTA_USER }}
+          INSTA_PASS: ${{ secrets.INSTA_PASS }}
+          TOTP_SECRET: ${{ secrets.TOTP_SECRET }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 squads/rubimfx-content/publish/github-publish.py

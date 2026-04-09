@@ -5,6 +5,18 @@ language: "Português (Brasil)"
 performance_mode: alta-performance
 
 agents:
+  - id: samuel-estrategista
+    name: "Samuel Estrategista"
+    icon: "🎯"
+    execution: inline
+  - id: bruno-benchmark
+    name: "Bruno Benchmark"
+    icon: "🔬"
+    execution: subagent
+  - id: eva-estrutura
+    name: "Eva Estrutura"
+    icon: "🧬"
+    execution: inline
   - id: nara-noticia
     name: "Nara Notícia"
     icon: "🔍"
@@ -29,6 +41,10 @@ agents:
     name: "Renata Revisão"
     icon: "✅"
     execution: inline
+  - id: pedro-performance
+    name: "Pedro Performance"
+    icon: "📊"
+    execution: inline
 
 skills:
   - web_search
@@ -36,13 +52,37 @@ skills:
   - image-creator
 
 data:
-  - pipeline/data/research-brief.md
+  - pipeline/data/research-focus.md
   - pipeline/data/domain-framework.md
   - pipeline/data/quality-criteria.md
   - pipeline/data/output-examples.md
   - pipeline/data/anti-patterns.md
   - pipeline/data/tone-of-voice.md
   - pipeline/data/style-guide-economesteter.md
+
+knowledge:
+  - path: skills-copy/skill-angulos-16-categorias.md
+    used_by: [iago-instagram]
+  - path: skills-copy/skill-headlines-28-formas.md
+    used_by: [iago-instagram]
+  - path: skills-copy/skill-hooks-5-fundamentos.md
+    used_by: [iago-instagram, leo-legenda, renata-revisao]
+  - path: skills-copy/skill-corpo-blocos-lego.md
+    used_by: [iago-instagram]
+  - path: skills-copy/skill-estrutura-invisivel.md
+    used_by: [iago-instagram, renata-revisao, vitor-visual]
+  - path: skills-copy/skill-cta.md
+    used_by: [leo-legenda, renata-revisao]
+  - path: skills-copy/skill-municao-emocional.md
+    used_by: [leo-legenda]
+  - path: skills-copy/skill-bullets-fascinations.md
+    used_by: [leo-legenda]
+  - path: skills-copy/skill-framework-revisao-ads.md
+    used_by: [renata-revisao]
+  - path: skills-copy/benchmark-criativos.md
+    used_by: [vitor-visual]
+  - path: skills-copy/skill-catalogo-formatos-angulos-estrategias.md
+    used_by: [vitor-visual]
 
 formats:
   - instagram-feed
@@ -61,3 +101,4 @@ pipeline:
     - step-09-create-visuals
     - step-10-review
     - step-11-final-approval
+    - step-12-performance-analysis

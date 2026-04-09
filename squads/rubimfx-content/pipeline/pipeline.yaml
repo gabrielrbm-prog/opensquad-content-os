@@ -1,6 +1,7 @@
 name: "RubimFX Content Pipeline"
 version: "1.0.0"
 steps:
+  - file: steps/step-00-strategy.md
   - file: steps/step-01-research-focus.md
   - file: steps/step-02-news-research.md
   - file: steps/step-02b-visual-trends.md
@@ -13,3 +14,4 @@ steps:
   - file: steps/step-09-create-visuals.md
   - file: steps/step-10-review.md
   - file: steps/step-11-final-approval.md
+  - file: steps/step-12-performance-analysis.md

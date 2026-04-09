@@ -1,22 +1,29 @@
 # Research Focus
 
 ## Foco
-Eleições 2026: Lula vs Flávio Bolsonaro empatados nas pesquisas — economia no centro da disputa. Percepção de inflação e custo de vida vs indicadores positivos. Caso Lulinha (R$19,5 mi). Debate "economia boa no papel vs bolso do eleitor".
+Notícias quentes do dia — política, economia, geopolítica, mercado financeiro. As mais virais e impactantes para o público @rubimfx.
 
 ## Horizonte Temporal
-Últimos 7 dias
+Últimas 24h
 
 ## Palavras-chave
-- eleições 2026
-- Lula Flávio Bolsonaro pesquisa
-- economia percepção eleitor
-- custo de vida inflação alimentos
-- caso Lulinha R$19,5 milhões
-- aprovação Lula economia
-- Atlas Bloomberg pesquisa empate
+- Trump Irã guerra petróleo Ormuz
+- Lula eleições 2026 kit reeleição fiscal
+- Banco Master CPI Vorcaro Galípolo
+- Selic dólar Ibovespa inflação IPCA
+- tarifas EUA exportações Brasil
+- ouro mercado financeiro
 
-## Notas do Usuário
-Notícia trend no X e TikTok sobre política e economia. Estilo editorial @economesteter.
+## Fontes Prioritárias (viés conservador)
+- Gazeta do Povo, Revista Oeste, Jovem Pan, O Antagonista
+- InfoMoney, Bloomberg Linea, Valor Econômico
+- Twitter/X (breaking news)
+
+## Notas
+- Gabriel tem viés conservador de direita
+- Priorizar notícias com números impactantes (R$ bilhões, %)
+- Escândalos políticos viralizam muito
+- Geopolítica com impacto em mercado (petróleo, ouro, dólar)
 
 ## Data de Criação
-2026-03-15T21:30:00-03:00
+2026-04-08T10:05:00-03:00
