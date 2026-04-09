@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Space+Mono:wght@700&display=swap');
+
+  :root {
+    --marrom-sepia: #593A99;
+    --lilas-glow: #CCB0FF;
+    --verde-ok: #10B981;
+    --midnight: #281369;
+    --onyx: #040405;
+    --amber: #F59E0B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .tweet-area {
+    flex: 0 0 auto;
+    padding: 48px 56px 28px;
+    background: #FFFFFF;
+  }
+
+  .profile-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .profile-pic {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .profile-name-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .profile-name {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0F1419;
+    line-height: 1;
+  }
+
+  .verified-icon { flex-shrink: 0; }
+
+  .profile-handle {
+    font-size: 22px;
+    font-weight: 400;
+    color: #536471;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(40,19,105,0.08);
+    border: 1px solid rgba(89,58,153,0.3);
+    border-radius: 100px;
+    padding: 8px 18px;
+    margin-bottom: 20px;
+    width: fit-content;
+  }
+
+  .badge-text {
+    font-size: 14px;
+    font-weight: 800;
+    color: #593A99;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .headline {
+    font-size: 50px;
+    font-weight: 900;
+    color: #0F1419;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    letter-spacing: -0.5px;
+  }
+
+  .hl-accent { color: #593A99; }
+  .hl-num {
+    color: #593A99;
+    font-family: 'Space Mono', monospace;
+  }
+  .hl-green { color: #10B981; font-family: 'Space Mono', monospace; }
+
+  /* STAT PILLS */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .stat-pill {
+    background: #F7F5FF;
+    border: 1px solid rgba(89,58,153,0.2);
+    border-radius: 16px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .stat-pill.green {
+    background: #F0FDF9;
+    border-color: rgba(16,185,129,0.3);
+  }
+
+  .stat-value {
+    font-family: 'Space Mono', monospace;
+    font-size: 46px;
+    font-weight: 700;
+    color: #593A99;
+    line-height: 1;
+  }
+
+  .stat-pill.green .stat-value {
+    color: #10B981;
+  }
+
+  .stat-label {
+    font-size: 22px;
+    font-weight: 600;
+    color: #536471;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .photo-area {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .photo-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(4,4,5,0.75) 100%);
+  }
+
+  .bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .swipe-hint {
+    font-size: 20px;
+    font-weight: 700;
+    color: #CCB0FF;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .handle {
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(204,176,255,0.85);
+  }
+
+  .dots {
+    position: absolute;
+    bottom: 64px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(204,176,255,0.35);
+  }
+
+  .dot.active {
+    background: #CCB0FF;
+    width: 24px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+  <div class="tweet-area">
+    <div class="profile-row">
+      <img class="profile-pic" src="logo-simbolo.jpeg" alt="InvisIA">
+      <div class="profile-info">
+        <div class="profile-name-row">
+          <span class="profile-name">InvisIA</span>
+          <svg class="verified-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="12" fill="#593A99"/>
+            <path d="M9 12.5L11 14.5L15.5 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="profile-handle">@invisia.ia</span>
+      </div>
+    </div>
+
+    <div class="badge">
+      <span class="badge-text">OS NÚMEROS</span>
+    </div>
+
+    <h2 class="headline">
+      LUCRO <span class="hl-green">RECORDE</span> +<br>
+      DEMISSÃO <span class="hl-accent">EM MASSA</span>
+    </h2>
+
+    <div class="stat-grid">
+      <div class="stat-pill green">
+        <span class="stat-value">+95%</span>
+        <span class="stat-label">Lucro trimestral</span>
+      </div>
+      <div class="stat-pill green">
+        <span class="stat-value">US$6,1bi</span>
+        <span class="stat-label">Lucro líquido</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-value">30K</span>
+        <span class="stat-label">Demitidos</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-value">18%</span>
+        <span class="stat-label">Workforce cortado</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="photo-area">
+    <img src="img-empty-office.jpg" alt="">
+    <div class="photo-overlay"></div>
+
+    <div class="dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+
+    <div class="bottom-bar">
+      <span class="swipe-hint">ARRASTA PRO LADO &gt;&gt;&gt;</span>
+      <span class="handle">@INVISIA.IA</span>
+    </div>
+  </div>
+</body>
+</html>

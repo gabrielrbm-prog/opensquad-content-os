@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide 01 - Capa</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@700&display=swap');
+    :root {
+      --bg: #FFFFFF;
+      --text-primary: #0F1419;
+      --text-body: #292F33;
+      --text-secondary: #536471;
+      --marrom-sepia: #593A99;
+      --lilas-glow: #CCB0FF;
+      --verde-ok: #10B981;
+      --midnight: #281369;
+      --preto-onyx: #040405;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      width: 1080px;
+      height: 1350px;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+    .bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('photo-cover.png');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.4) contrast(1.1);
+      z-index: 1;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(88, 58, 153, 0.6) 0%, rgba(40, 19, 105, 0.8) 100%);
+      z-index: 2;
+    }
+    .content {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 52px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      background: var(--midnight);
+      border: 1px solid rgba(204, 176, 255, 0.3);
+      color: #E6E7FF;
+      margin-bottom: 32px;
+    }
+    .headline {
+      font-size: 74px;
+      font-weight: 900;
+      color: #FFFFFF;
+      line-height: 1.1;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+    .subheadline {
+      font-size: 36px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.4;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-image"></div>
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="badge">SÉRIE NOVA 🚀</div>
+    <h1 class="headline">IA TOOLS<br>DA SEMANA<br>#1</h1>
+    <p class="subheadline">5 ferramentas que você<br>precisa conhecer</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Space+Mono:wght@700&display=swap');
+
+  :root {
+    --marrom-sepia: #593A99;
+    --lilas-glow: #CCB0FF;
+    --verde-ok: #10B981;
+    --midnight: #281369;
+    --onyx: #040405;
+    --amber: #F59E0B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background: var(--onyx);
+    position: relative;
+  }
+
+  .bg-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 0;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      rgba(4,4,5,0.35) 0%,
+      rgba(40,19,105,0.25) 25%,
+      rgba(40,19,105,0.45) 50%,
+      rgba(4,4,5,0.88) 72%,
+      rgba(4,4,5,0.98) 100%);
+    z-index: 1;
+  }
+
+  .content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 56px;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    height: 48px;
+    opacity: 0.9;
+  }
+
+  .slide-counter {
+    font-family: 'Space Mono', monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(204,176,255,0.5);
+    letter-spacing: 2px;
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 16px;
+  }
+
+  .headline {
+    font-size: 72px;
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 40px rgba(40,19,105,0.6);
+    margin-bottom: 28px;
+  }
+
+  .hl-accent { color: #CCB0FF; }
+  .hl-num {
+    color: #CCB0FF;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .sub {
+    font-size: 26px;
+    font-weight: 400;
+    color: rgba(230,231,255,0.82);
+    line-height: 1.5;
+    max-width: 860px;
+    margin-bottom: 36px;
+  }
+
+  /* CTA BOX */
+  .cta-box {
+    background: linear-gradient(135deg, rgba(89,58,153,0.35), rgba(40,19,105,0.45));
+    border: 1px solid rgba(204,176,255,0.35);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+    backdrop-filter: blur(8px);
+  }
+
+  .cta-label {
+    font-size: 15px;
+    font-weight: 800;
+    color: rgba(204,176,255,0.6);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .cta-text {
+    font-size: 28px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.4;
+  }
+
+  .cta-text span {
+    color: #CCB0FF;
+    font-family: 'Space Mono', monospace;
+    font-size: 30px;
+  }
+
+  /* BRAND FOOTER */
+  .brand-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 24px;
+    border-top: 1px solid rgba(204,176,255,0.2);
+  }
+
+  .brand-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .brand-handle {
+    font-size: 26px;
+    font-weight: 900;
+    color: #CCB0FF;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .brand-tagline {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(204,176,255,0.55);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .share-cta {
+    font-size: 18px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+
+  .dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(204,176,255,0.3);
+  }
+
+  .dot.active {
+    background: #CCB0FF;
+    width: 24px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+  <img class="bg-photo" src="photo-cta.png" alt="">
+  <div class="overlay"></div>
+
+  <div class="content">
+    <div class="header">
+      <img class="logo" src="logo-branca.png" alt="InvisIA">
+      <span class="slide-counter">08 / 08</span>
+    </div>
+
+    <div class="main">
+      <h1 class="headline">
+        O FUTURO NÃO ESPERA.<br>
+        <span class="hl-accent">E NEM AS EMPRESAS.</span>
+      </h1>
+
+      <p class="sub">
+        30.000 pessoas descobriram por e-mail às 6h. Não seja o próximo a ser pego de surpresa.
+      </p>
+
+      <div class="cta-box">
+        <div class="cta-label">Ação agora</div>
+        <div class="cta-text">
+          Comente <span>"ORACLE"</span> e receba o checklist de proteção contra automação
+        </div>
+      </div>
+
+      <div class="brand-footer">
+        <div class="brand-left">
+          <span class="brand-handle">@INVISIA.IA</span>
+          <span class="brand-tagline">ONDE O INVISÍVEL GANHA ESCALA</span>
+        </div>
+        <div class="share-cta">MANDA PRA<br>QUEM PRECISA<br>OUVIR ISSO</div>
+      </div>
+
+      <div class="dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot active"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

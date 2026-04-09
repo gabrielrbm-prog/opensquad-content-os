@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Space+Mono:wght@700&display=swap');
+
+  :root {
+    --marrom-sepia: #593A99;
+    --lilas-glow: #CCB0FF;
+    --verde-ok: #10B981;
+    --midnight: #281369;
+    --onyx: #040405;
+    --offwhite: #F5F5F5;
+    --lilas-nuvem: #E6E7FF;
+    --amber: #F59E0B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background: var(--onyx);
+    position: relative;
+  }
+
+  .bg-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 0;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      rgba(4,4,5,0.30) 0%,
+      rgba(40,19,105,0.18) 20%,
+      rgba(40,19,105,0.35) 45%,
+      rgba(4,4,5,0.85) 68%,
+      rgba(4,4,5,0.97) 100%);
+    z-index: 1;
+  }
+
+  .content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 56px;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    height: 48px;
+    opacity: 0.9;
+  }
+
+  .slide-counter {
+    font-family: 'Space Mono', monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(204,176,255,0.5);
+    letter-spacing: 2px;
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 24px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245,158,11,0.15);
+    border: 1px solid rgba(245,158,11,0.55);
+    border-radius: 100px;
+    padding: 10px 22px;
+    margin-bottom: 32px;
+    width: fit-content;
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #F59E0B;
+    box-shadow: 0 0 10px #F59E0B;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .badge-text {
+    font-size: 15px;
+    font-weight: 800;
+    color: #F59E0B;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .headline {
+    font-size: 78px;
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.03;
+    letter-spacing: -1.5px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 40px rgba(40,19,105,0.6);
+    margin-bottom: 32px;
+  }
+
+  .hl-accent { color: #CCB0FF; }
+  .hl-num {
+    color: #CCB0FF;
+    font-family: 'Space Mono', monospace;
+  }
+  .hl-green { color: #10B981; }
+
+  .sub {
+    font-size: 27px;
+    font-weight: 500;
+    color: rgba(230,231,255,0.82);
+    line-height: 1.45;
+    max-width: 820px;
+  }
+
+  .bottom-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 24px;
+    border-top: 1px solid rgba(204,176,255,0.2);
+    margin-top: 36px;
+  }
+
+  .swipe-hint {
+    font-size: 20px;
+    font-weight: 700;
+    color: #CCB0FF;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .handle {
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(204,176,255,0.7);
+    letter-spacing: 1px;
+  }
+
+  .dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 18px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(204,176,255,0.3);
+  }
+
+  .dot.active {
+    background: #CCB0FF;
+    width: 24px;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+  <img class="bg-photo" src="photo-cover.png" alt="">
+  <div class="overlay"></div>
+
+  <div class="content">
+    <div class="header">
+      <img class="logo" src="logo-branca.png" alt="InvisIA">
+      <span class="slide-counter">01 / 08</span>
+    </div>
+
+    <div class="main">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">BREAKING</span>
+      </div>
+
+      <h1 class="headline">
+        ORACLE DEMITIU<br>
+        <span class="hl-num">30.000</span><br>
+        POR E-MAIL ÀS<br>
+        <span class="hl-accent">6H DA MANHÃ</span>
+      </h1>
+
+      <p class="sub">
+        Lucro recorde. Demissão em massa. O sinal mais claro do futuro.
+      </p>
+
+      <div class="bottom-bar">
+        <span class="swipe-hint">ARRASTA PRO LADO &gt;&gt;&gt;</span>
+        <span class="handle">@INVISIA.IA</span>
+      </div>
+
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

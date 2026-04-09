@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1350px; font-family: 'Inter', sans-serif; color: #FFFFFF; overflow: hidden; position: relative; }
+  .bg-image { position: absolute; inset: 0; z-index: 1; }
+  .bg-image img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
+  .bg-overlay {
+    position: absolute; inset: 0; z-index: 2;
+    background: linear-gradient(180deg,
+      rgba(4,4,5,0.55) 0%,
+      rgba(40,19,105,0.50) 30%,
+      rgba(40,19,105,0.62) 55%,
+      rgba(4,4,5,0.92) 78%,
+      rgba(4,4,5,0.99) 100%);
+  }
+  .logo-header { position: absolute; top: 44px; left: 56px; z-index: 20; }
+  .logo-header img { height: 48px; width: auto; opacity: 0.90; }
+  .content {
+    position: relative; z-index: 10; width: 100%; height: 100%;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    align-items: center; text-align: center; padding: 0 64px 52px;
+  }
+  .headline {
+    font-size: 72px; font-weight: 900; line-height: 0.95;
+    letter-spacing: -2px; text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(4,4,5,0.7), 0 4px 28px rgba(40,19,105,0.6);
+    margin-bottom: 24px; max-width: 900px;
+  }
+  .hl-num { color: #CCB0FF; }
+  .hl-accent { color: #CCB0FF; }
+  .subtitle {
+    font-size: 26px; font-weight: 500;
+    color: rgba(255,255,255,0.75); line-height: 1.45;
+    margin-bottom: 36px; max-width: 780px;
+  }
+  .divider { width: 80px; height: 4px; background: #CCB0FF; border-radius: 2px; margin: 0 auto 32px; }
+  .cta-block { display: flex; flex-direction: column; gap: 10px; align-items: center; margin-bottom: 36px; }
+  .cta-main {
+    font-size: 27px; font-weight: 600; color: rgba(255,255,255,0.88);
+    line-height: 1.45; max-width: 720px;
+  }
+  .keyword {
+    display: inline-block;
+    background: #CCB0FF; color: #040405;
+    font-weight: 900; font-size: 28px;
+    padding: 3px 16px; border-radius: 6px;
+    letter-spacing: 1px;
+  }
+  .handle-big { font-size: 42px; font-weight: 900; color: #CCB0FF; letter-spacing: 2px; margin-bottom: 28px; }
+  .bottom-bar {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    padding-top: 24px; border-top: 1px solid rgba(204,176,255,0.22);
+  }
+  .tagline { font-size: 19px; font-weight: 700; color: rgba(255,255,255,0.50); letter-spacing: 3px; text-transform: uppercase; }
+  .share-cta { font-size: 19px; font-weight: 700; color: rgba(255,255,255,0.50); text-transform: uppercase; letter-spacing: 1.5px; }
+  .slide-dots { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(204,176,255,0.28); }
+  .dot.active { background: #CCB0FF; width: 13px; height: 13px; }
+</style>
+</head>
+<body>
+<div class="bg-image">
+  <img src="photo-cta.png" alt="">
+</div>
+<div class="bg-overlay"></div>
+<div class="logo-header"><img src="logo-branca.png" alt="InvisIA"></div>
+<div class="content">
+  <div class="headline">
+    <span class="hl-num">5</span> PROCESSOS.<br><span class="hl-accent">5 FERRAMENTAS.</span><br>MENOS TRABALHO MANUAL.
+  </div>
+  <div class="subtitle">Comece pelo processo que mais consome seu tempo. O resto vem naturalmente.</div>
+  <div class="divider"></div>
+  <div class="cta-block">
+    <div class="cta-main">
+      Comente <span class="keyword">"AUTO"</span> e receba o checklist de automação
+    </div>
+  </div>
+  <div class="handle-big">@INVISIA.IA</div>
+  <div class="bottom-bar">
+    <div class="tagline">ONDE O INVISÍVEL GANHA ESCALA</div>
+    <div class="share-cta">MANDA PRA QUEM FAZ TUDO MANUAL</div>
+  </div>
+  <div class="slide-dots">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div>
+  </div>
+</div>
+</body>
+</html>
