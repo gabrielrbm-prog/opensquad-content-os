@@ -1,0 +1,87 @@
+name: Publish @invisia.ia Posts
+
+on:
+  # Horários fixos (UTC — BRT é UTC-3)
+  schedule:
+    - cron: '0 12 * * *'  # 9h BRT
+    - cron: '0 16 * * *'  # 13h BRT
+    - cron: '0 22 * * *'  # 19h BRT
+  # Manual trigger
+  workflow_dispatch:
+    inputs:
+      post_dir:
+        description: 'Nome da pasta do post (ex: 2026-04-09-crencas-ia)'
+        required: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install instagrapi Pillow
+
+      - name: Create .env for credentials
+        run: |
+          echo "INSTA_USER=${{ secrets.INSTA_USER }}" > squads/invis-ia-content/publish/.env
+          echo "INSTA_PASS=${{ secrets.INSTA_PASS }}" >> squads/invis-ia-content/publish/.env
+
+      - name: Restore Instagram session
+        run: |
+          mkdir -p ~/.instagrapi
+          if [ -n "${{ secrets.INSTA_SESSION }}" ]; then
+            echo '${{ secrets.INSTA_SESSION }}' > ~/.instagrapi/invisia.json
+          fi
+
+      - name: Find and publish next queued post
+        run: |
+          QUEUE_DIR="squads/invis-ia-content/output/queue"
+          SCRIPT="squads/invis-ia-content/publish/instagrapi-publish.py"
+
+          # If manual trigger with specific post
+          if [ -n "${{ github.event.inputs.post_dir }}" ]; then
+            POST="squads/invis-ia-content/output/${{ github.event.inputs.post_dir }}"
+            echo "Publishing specific post: $POST"
+            cd squads/rubimfx-content/scripts && python3 "../../../$SCRIPT" "../../../$POST"
+            exit 0
+          fi
+
+          # Auto mode: find first post in queue/ that hasn't been published
+          if [ ! -d "$QUEUE_DIR" ]; then
+            echo "No queue directory. Nothing to publish."
+            exit 0
+          fi
+
+          for POST_DIR in $(ls -d "$QUEUE_DIR"/*/ 2>/dev/null | sort); do
+            if [ ! -f "$POST_DIR/publish-log.json" ]; then
+              echo "Publishing: $POST_DIR"
+              cd squads/rubimfx-content/scripts && python3 "../../../$SCRIPT" "../../../$POST_DIR"
+
+              # Save session back
+              if [ -f ~/.instagrapi/invisia.json ]; then
+                echo "Session updated"
+              fi
+
+              exit 0
+            fi
+          done
+
+          echo "All posts in queue already published. Nothing to do."
+
+      - name: Save session artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: insta-session
+          path: ~/.instagrapi/invisia.json
+          retention-days: 7
